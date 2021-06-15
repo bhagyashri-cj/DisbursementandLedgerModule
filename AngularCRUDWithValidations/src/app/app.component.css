@@ -1,0 +1,20 @@
+.one
+{
+    color: blue;
+    font-weight:bolder;
+    font-size: larger;
+}
+.two{
+    font-weight: bold;
+    color:brown;
+}
+.three{
+    font-size: 50px;
+}
+.four
+{  
+    color:darkviolet;
+    font-style: italic;
+    font-size: 70px;
+
+}
