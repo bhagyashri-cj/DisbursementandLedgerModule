@@ -1,0 +1,66 @@
+<div style="text-align: center;">
+    <h2>Register Forms(Model-Driven)</h2>                                                                                                                       
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+        <input type="text" placeholder="Enter Book Name" formControlName="name">                                                                                                                                                                                               
+        <div *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid">
+        <span *ngIf="registerForm.controls['name'].hasError('required')" >Book Name is required</span>
+        <span *ngIf="registerForm.controls['name'].hasError('minlength')" >minLength is 4</span>
+        <span *ngIf="registerForm.controls['name'].hasError('maxlength')" >Max Length is 10</span>
+    </div>
+     <br>
+        <input type="text" placeholder="Enter Book Category" formControlName="category">
+        <div *ngIf="registerForm.controls['category'].touched && registerForm.controls['category'].invalid">
+            <span *ngIf="registerForm.controls['category'].hasError('required')">Category is required</span>
+            <span *ngIf="registerForm.controls['category'].hasError('minlength')">min length is 3</span>
+            <span *ngIf="registerForm.controls['category'].hasError('maxlength')">max length is 10</span>
+
+        
+        </div>
+         <br>
+        <input type="text" placeholder="Enter Book Price" formControlName="price" >
+        <div *ngIf="registerForm.controls['price'].touched && registerForm.controls['price'].invalid" >
+            <span *ngIf="registerForm.controls['price'].hasError('required')">Price is required</span>
+            <span *ngIf="registerForm.controls['price'].hasError('minlength')">min length is 2</span>
+            <span *ngIf="registerForm.controls['price'].hasError('maxlength')">max length is 4</span>
+            
+        </div>
+         <br>
+        
+        <input type="submit" value="{{buttenText}}"> <br>
+        <button (click)="resetData()">Reset</button>
+    </form>
+    
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of bookList">
+            
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.price}}</td>
+            <button (click)="deleteData(book.id)">delete</button>
+            <button (click)="updateData(book.id)">edit</button>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+</div>
+
+
+
+
+
+
+
+
+
